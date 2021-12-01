@@ -78,7 +78,7 @@ jobs:
           $CurrentVersion = "$Year.$Month.$Day.$Hour$Minute"
           
           Write-Host "Publishing agent with version $CurrentVersion"
-          dotnet publish /p:Version=$CurrentVersion /p:FileVersion=$CurrentVersion --runtime linux-arm --configuration Release --output "./Agent/bin/publish/" "./Agent/"
+          dotnet publish /p:Version=$CurrentVersion /p:FileVersion=$CurrentVersion --runtime linux-arm64 --configuration Release --output "./Agent/bin/publish/" "./Agent/"
           Compress-Archive -Path "./Agent/bin/publish/*" -DestinationPath "./Agent/bin/Remotely-Arm64.zip" -Force
 
       - name: Upload build artifact
